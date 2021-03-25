@@ -2,7 +2,7 @@ import "twin.macro";
 import ProjectCard from "../components/ProjectCard";
 
 const Projects: React.FC = () => (
-  <section>
+  <section tw="container text-gray-900">
     <h2
       id="projects"
       tw="mb-10 text-center text-5xl font-extrabold tracking-tight lg:mb-16"

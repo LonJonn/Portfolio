@@ -1,43 +1,38 @@
 import Link from "next/link";
 import Button from "../Button";
-import { useRouter } from "next/router";
-import tw, { styled } from "twin.macro";
+import tw, { css, styled } from "twin.macro";
 
-const Header: React.FC = () => {
-  const { pathname } = useRouter();
+type HeaderProps = { hasBackground?: boolean };
+const Header: React.FC<HeaderProps> = ({ hasBackground }) => (
+  <Wrapper className={hasBackground && "background"}>
+    <Link href="/" passHref>
+      <Logo>LS</Logo>
+    </Link>
 
-  return (
-    <Wrapper>
-      <Link href="/" passHref>
-        <Logo>LS</Logo>
+    <Nav>
+      <Link href="/#projects" passHref>
+        <NavLink>Projects</NavLink>
       </Link>
+      <Link href="/resume" passHref>
+        <NavLink>Resume</NavLink>
+      </Link>
+      <NavLink href="https://github.com/LonJonn" target="_none">
+        GitHub
+      </NavLink>
+      <NavLink
+        href="https://www.linkedin.com/in/leon-salsiccia/"
+        target="_none"
+      >
+        LinkedIn
+      </NavLink>
+    </Nav>
 
-      <Nav hasBackground={pathname === "/"}>
-        <Link href="/#projects" passHref>
-          <NavLink>Projects</NavLink>
-        </Link>
-        <Link href="/resume" passHref>
-          <NavLink>Resume</NavLink>
-        </Link>
-        <NavLink href="https://github.com/LonJonn" target="_none">
-          GitHub
-        </NavLink>
-        <NavLink
-          href="https://www.linkedin.com/in/leon-salsiccia/"
-          target="_none"
-        >
-          LinkedIn
-        </NavLink>
-      </Nav>
-
-      <ContactButton as="a" href="mailto:leon.salsiccia@gmail.com">
-        <p>Contact Me</p>
-        {ContactIcon}
-      </ContactButton>
-    </Wrapper>
-  );
-};
-
+    <ContactButton as="a" href="mailto:leon.salsiccia@gmail.com">
+      <p>Contact Me</p>
+      {ContactIcon}
+    </ContactButton>
+  </Wrapper>
+);
 //#region Internal Styles
 
 const Wrapper = tw.header`
@@ -58,22 +53,30 @@ const Logo = tw.a`
   md:(mb-0 mr-auto)
 `;
 
-type NavProps = { hasBackground?: boolean };
-const Nav = styled.nav<NavProps>(p => [
+const Nav = styled.nav(() => [
   tw`flex flex-wrap gap-x-4 items-center justify-center mr-0 text-gray-700`,
   // Breakpoints
   tw`md:mr-4`,
   tw`xl:(gap-x-8 mr-8)`,
   // Variants
-  p.hasBackground && tw`md:text-whiteAlpha-700`,
+  css`
+    .background & {
+      ${tw`md:text-whiteAlpha-700`}
+    }
+  `,
 ]);
 
 const NavLink = tw.a`hover:underline`;
 
 const ContactButton = styled(Button)(() => [
   tw`mt-4 text-primary-700 bg-primary-100 hover:bg-primary-200`,
-  // Breakpoints
-  tw`md:(mt-0 text-white bg-whiteAlpha-200 hover:bg-whiteAlpha-300)`,
+  tw`md:mt-0`,
+  // Variants
+  css`
+    .background & {
+      ${tw`md:(text-white bg-whiteAlpha-200 hover:bg-whiteAlpha-300)`}
+    }
+  `,
 ]);
 
 const ContactIcon = (
