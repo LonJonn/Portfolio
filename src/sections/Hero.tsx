@@ -47,8 +47,9 @@ const Hero: React.FC = () => (
           <Bold>React</Bold>, <Bold>NextJS</Bold> & <Bold>Tailwind CSS</Bold>.
         </p>
         <p>
-          Thanks for checking out my website ❤️! If you're interested to see
-          some of the things I've worked on, please{" "}
+          Thanks for checking out my website! ❤️
+          <br />
+          If you're interested to see some of the things I've worked on, please{" "}
           <Link href="#projects">
             <a>check out my projects below!</a>
           </Link>
