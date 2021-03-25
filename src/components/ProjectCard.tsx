@@ -15,7 +15,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   img,
 }) => (
   // Wrap in div to avoid clashing margins
-  <div className="group" tw="cursor-pointer">
+  <div className="group" tw="cursor-pointer lg:w-5/12">
     <Wrapper>
       <img src={img} css={imageStyles()} />
 
@@ -37,15 +37,15 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 const Wrapper = tw.div`relative flex flex-col mb-10`;
 
 const imageStyles = () => [
-  tw`w-full rounded-2xl shadow object-contain`,
+  tw`w-full h-full rounded-2xl shadow object-contain`,
   tw`transform translate-y-0.5 transition-all duration-500`,
   // States
   tw`group-hover:(shadow-xl -translate-y-0.5)`,
 ];
 
 const Info = styled.div(() => [
-  tw`absolute w-10/12 p-6 bg-whiteAlpha-600 rounded-md shadow-xl`,
-  tw`bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/3`,
+  tw`w-10/12 p-6 bg-whiteAlpha-600 rounded-md shadow-xl`,
+  tw`absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/3`,
   // Custom
   css`
     backdrop-filter: blur(20px);
