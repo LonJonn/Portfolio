@@ -8,14 +8,18 @@ const settings: Settings = {
   infinite: true,
   autoplay: true,
   arrows: false,
-  adaptiveHeight: true,
+  // adaptiveHeight: true,
 };
 
 const ProjectShowcase: React.FC<{ images: string[] }> = ({ images }) => {
   return (
     <Slider tw="max-w-5xl mb-20 mx-auto" {...settings}>
       {images.map(image => (
-        <img tw="maxHeight[65vh] object-scale-down" src={image} key={image} />
+        <img
+          tw="maxHeight[85vh] my-auto object-contain lg:rounded-lg"
+          src={image}
+          key={image}
+        />
       ))}
     </Slider>
   );

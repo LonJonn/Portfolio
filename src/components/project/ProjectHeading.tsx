@@ -1,5 +1,5 @@
 import "twin.macro";
-import { ProjectMeta } from "../types";
+import type { ProjectMeta } from "../../types";
 
 const ProjectHeading: React.FC<ProjectMeta> = ({
   title,
@@ -10,7 +10,7 @@ const ProjectHeading: React.FC<ProjectMeta> = ({
   <div tw="flex flex-col gap-y-6 text-center">
     <h1
       cs="WebkitBackgroundClip[text] WebkitTextFillColor[transparent]"
-      tw="mx-auto text-4xl text-6xl font-extrabold bg-gradient-to-tr from-orange-400 to-red-500 via-pink-500 md:text-5xl"
+      tw="mx-auto text-4xl text-6xl font-extrabold tracking-wide bg-gradient-to-tr from-orange-400 to-red-500 via-pink-500 md:text-5xl"
     >
       {title}
     </h1>

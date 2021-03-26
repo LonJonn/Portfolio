@@ -1,9 +1,9 @@
 import "twin.macro";
 import Head from "next/head";
-import Divider from "../Divider";
-import ProjectHeading from "../ProjectHeading";
-import ProjectShowcase from "../ProjectShowcase";
-import { ProjectMeta } from "../../types";
+import Divider from "../common/Divider";
+import ProjectHeading from "../project/ProjectHeading";
+import ProjectShowcase from "../project/ProjectShowcase";
+import type { ProjectMeta } from "../../types";
 
 type ProjectLayoutProps = { meta: ProjectMeta; images: string[] };
 const ProjectLayout: React.FC<ProjectLayoutProps> = ({

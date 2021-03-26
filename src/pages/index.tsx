@@ -1,9 +1,9 @@
 import Link from "next/link";
 import React from "react";
 import tw from "twin.macro";
-import Divider from "../components/Divider";
 import Header from "../components/layout/Header";
-import ProjectCard from "../components/ProjectCard";
+import Divider from "../components/common/Divider";
+import ProjectCard from "../components/project/ProjectCard";
 import { projects } from "../project-metainfo";
 
 const Home: React.FC = () => {

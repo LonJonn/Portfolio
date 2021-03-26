@@ -1,4 +1,4 @@
-import { ProjectMeta } from "./types";
+import type { ProjectMeta } from "./types";
 
 export const projects: { [id: string]: ProjectMeta } = {
   pinki: {

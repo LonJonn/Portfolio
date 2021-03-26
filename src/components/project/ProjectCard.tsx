@@ -1,7 +1,7 @@
-import Link from "next/link";
 import "twin.macro";
+import Link from "next/link";
 import tw, { css, styled } from "twin.macro";
-import { ProjectMeta } from "../types";
+import type { ProjectMeta } from "../../types";
 
 const ProjectCard: React.FC<ProjectMeta & { id: string }> = ({
   id,
