@@ -1,35 +1,35 @@
+import Link from "next/link";
 import "twin.macro";
 import tw, { css, styled } from "twin.macro";
+import { ProjectMeta } from "../types";
 
-type ProjectCardProps = {
-  title: string;
-  year: number;
-  description: string;
-  img: string;
-};
-
-const ProjectCard: React.FC<ProjectCardProps> = ({
+const ProjectCard: React.FC<ProjectMeta & { id: string }> = ({
+  id,
   title,
   year,
   description,
-  img,
+  coverImage,
 }) => (
   // Wrap in div to avoid clashing margins
-  <div className="group" tw="cursor-pointer lg:w-5/12">
-    <Wrapper>
-      <img src={img} css={imageStyles()} />
+  <Link href={`/projects/${id}`} passHref>
+    <a className="group" tw="lg:w-5/12">
+      <Wrapper>
+        <div tw="lg:(aspect-w-16 aspect-h-9)">
+          <img src={`/images/${id}/${coverImage}`} css={imageStyles()} />
+        </div>
 
-      {/* Info */}
-      <Info>
-        <InfoTop>
-          <Title>{title}</Title>
-          <Year>{year}</Year>
-        </InfoTop>
+        {/* Info */}
+        <Info>
+          <InfoTop>
+            <Title>{title}</Title>
+            <Year>{year}</Year>
+          </InfoTop>
 
-        <Description>{description}</Description>
-      </Info>
-    </Wrapper>
-  </div>
+          <Description>{description}</Description>
+        </Info>
+      </Wrapper>
+    </a>
+  </Link>
 );
 
 //#region Internal Styles
@@ -37,7 +37,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 const Wrapper = tw.div`relative flex flex-col mb-10`;
 
 const imageStyles = () => [
-  tw`w-full h-full rounded-2xl shadow object-contain`,
+  tw`rounded-2xl shadow object-cover`,
   tw`transform translate-y-0.5 transition-all duration-500`,
   // States
   tw`group-hover:(shadow-xl -translate-y-0.5)`,

@@ -10,7 +10,6 @@ module.exports = {
       colors: {
         ...colors,
         primary: colors.rose,
-        prim: "var(--color-primary)",
         gray: colors.trueGray,
         whiteAlpha: {
           50: "rgba(255, 255, 255, 0.05)",

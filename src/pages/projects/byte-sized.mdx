@@ -1,0 +1,19 @@
+import ProjectLayout from "../../components/layout/ProjectLayout";
+import { projects } from "../../project-metainfo";
+import { getImagePaths } from "../../utils/get-image-paths";
+
+# Hey
+
+export default ({ images, children }) => (
+  <ProjectLayout meta={projects["byte-sized"]} images={images}>
+    {children}
+  </ProjectLayout>
+);
+
+export function getStaticProps() {
+  return {
+    props: {
+      images: getImagePaths("byte-sized"),
+    },
+  };
+}

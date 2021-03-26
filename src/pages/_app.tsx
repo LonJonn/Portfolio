@@ -15,7 +15,9 @@ const App = ({ Component, pageProps, router }: AppProps) => (
 
     {/* Index page has custom navbar for hero section */}
     {router.pathname !== "/" && <Header />}
-    <Component {...pageProps} />
+    <main>
+      <Component {...pageProps} />
+    </main>
     <Footer />
   </>
 );
