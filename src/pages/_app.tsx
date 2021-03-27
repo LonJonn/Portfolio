@@ -1,7 +1,7 @@
 import { AppProps } from "next/dist/next-server/lib/router/router";
 import Head from "next/head";
-import Footer from "../components/layout/Footer";
-import Header from "../components/layout/Header";
+import Footer from "../components/common/Footer";
+import Header from "../components/common/Header";
 import GlobalStyles from "../styles/GlobalStyles";
 
 const App = ({ Component, pageProps, router }: AppProps) => (

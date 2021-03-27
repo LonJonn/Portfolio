@@ -1,7 +1,4 @@
-const withMDX = require("@next/mdx")();
-
-const config = {
-  pageExtensions: ["js", "jsx", "ts", "tsx", "md", "mdx"],
+module.exports = {
   webpack: (config, { isServer }) => {
     // Fixes packages that depend on fs/module module
     if (!isServer) {
@@ -11,5 +8,3 @@ const config = {
     return config;
   },
 };
-
-module.exports = withMDX(config);

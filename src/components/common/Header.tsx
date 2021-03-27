@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Button from "../common/Button";
+import Button from "./Button";
 import tw, { css, styled } from "twin.macro";
 
 type HeaderProps = { hasBackground?: boolean };

@@ -1,21 +1,21 @@
 import "twin.macro";
 import Link from "next/link";
 import tw, { css, styled } from "twin.macro";
-import type { ProjectMeta } from "../../types";
+import type { ProjectMetadata } from "../../types";
 
-const ProjectCard: React.FC<ProjectMeta & { id: string }> = ({
-  id,
+const ProjectCard: React.FC<ProjectMetadata & { slug: string }> = ({
+  slug,
   title,
   year,
   description,
-  coverImage,
+  cover_image,
 }) => (
   // Wrap in div to avoid clashing margins
-  <Link href={`/projects/${id}`} passHref>
+  <Link href={`/project/${slug}`} passHref>
     <a className="group" tw="lg:w-5/12">
       <Wrapper>
         <div tw="lg:(aspect-w-16 aspect-h-9)">
-          <img src={`/images/${id}/${coverImage}`} css={imageStyles()} />
+          <img src={`/images/${slug}/${cover_image}`} css={imageStyles()} />
         </div>
 
         {/* Info */}

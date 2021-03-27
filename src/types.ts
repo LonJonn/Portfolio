@@ -1,8 +1,11 @@
-export type ProjectMeta = {
-  id: string;
+export type ProjectMetadata = {
   title: string;
   description: string;
   year: number;
+  cover_image: string;
   tags: string[];
-  coverImage: string;
+  links?: {
+    github?: string;
+    demo?: string;
+  };
 };

@@ -2,7 +2,7 @@ import "twin.macro";
 import Slider, { Settings } from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { CSSProp } from "styled-components";
+import type { CSSProp } from "styled-components";
 
 const settings: Settings = {
   dots: true,

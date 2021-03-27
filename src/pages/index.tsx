@@ -1,12 +1,24 @@
-import Link from "next/link";
-import React from "react";
 import tw from "twin.macro";
-import Header from "../components/layout/Header";
+import { InferGetStaticPropsType } from "next";
+import Link from "next/link";
+import Header from "../components/common/Header";
 import Divider from "../components/common/Divider";
 import ProjectCard from "../components/project/ProjectCard";
-import { projects } from "../project-metainfo";
+import { getAllWriteups } from "../utils/project-writeup-helpers";
 
-const Home: React.FC = () => {
+export async function getStaticProps() {
+  const projects = await getAllWriteups();
+
+  return {
+    props: {
+      projects,
+    },
+  };
+}
+
+const Home: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
+  projects,
+}) => {
   return (
     <>
       {/* Hero */}
@@ -77,8 +89,12 @@ const Home: React.FC = () => {
         </h2>
 
         <div tw="flex flex-col flex-wrap gap-y-16 justify-around md:mx-12 lg:(flex-row mx-0)">
-          {Object.values(projects).map(meta => (
-            <ProjectCard {...meta} key={meta.id} />
+          {Object.values(projects).map(project => (
+            <ProjectCard
+              slug={project.slug}
+              {...project.data}
+              key={project.slug}
+            />
           ))}
         </div>
 
