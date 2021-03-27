@@ -14,7 +14,7 @@ const Home: React.FC = () => {
         {/* Background */}
         <div
           tw="absolute top-0 hidden w-full h-full md:(flex flex-col-reverse) lg:flex-row"
-          css={{ zIndex: -1 }}
+          cs="zIndex[-1]"
         >
           <div tw="flex-1 h-full"></div>
           <div tw="h-full bg-gradient-to-t from-purple-400 to-red-500 via-pink-500 lg:flex-1"></div>
