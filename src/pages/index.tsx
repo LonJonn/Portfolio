@@ -40,7 +40,7 @@ const Home: React.FC = () => {
               I'm{" "}
               <span className="group" tw="relative cursor-pointer">
                 <span tw="absolute bottom-full left-1/2 hidden justify-center w-48 py-1 text-base font-bold text-white bg-primary-900 rounded-md transform -translate-x-1/2 -translate-y-1 group-hover:flex">
-                  Lee-On Sal-See-Cha
+                  Lee•On Sal•See•Cha
                 </span>
                 <Bold tw="underline">Leon Salsiccia</Bold>
               </span>
@@ -52,7 +52,8 @@ const Home: React.FC = () => {
               This portfolio was designed and built by myself using some of my
               favourite technologies, including <Bold>TypeScript</Bold>,{" "}
               <Bold>React</Bold>, <Bold>NextJS</Bold> &{" "}
-              <Bold>Tailwind CSS</Bold>.
+              <Bold>Tailwind CSS</Bold>. All icons used are from{" "}
+              <Bold>HeroIcons</Bold>.
             </p>
             <p>
               Thanks for checking out my website! ❤️
