@@ -32,6 +32,7 @@ const ProjectShowcase: React.FC<{ images: string[] }> = ({ images }) => {
           <img
             tw="block! w-auto! mx-auto rounded shadow-xl object-contain lg:rounded-2xl"
             src={image}
+            alt={`Project Showcase Image ${image.split("/").slice(-1)}`}
             key={image}
           />
         ))}

@@ -40,7 +40,7 @@ const ProjectWriteUp: React.FC<
   return (
     <>
       <Head>
-        <title>{data.title}</title>
+        <title>{data.title} | Leon Salsiccia</title>
       </Head>
 
       {/* Heading */}
@@ -75,25 +75,28 @@ const ProjectWriteUp: React.FC<
 
       {/* Content */}
       <section
-        tw="prose prose-primary prose-lg mx-auto px-4"
+        tw="lg:prose-xl prose prose-lg prose-primary mx-auto px-4"
         dangerouslySetInnerHTML={{ __html: markup }}
       />
 
       <Divider tw="w-12 my-12" />
 
       {/* Buttons */}
-      <div tw="flex gap-x-4 max-w-xl mx-auto px-4 lg:gap-x-8">
+      <div
+        css={{ [Button]: tw`flex-1 py-3` }}
+        tw="flex gap-x-4 max-w-xl mx-auto px-4 lg:gap-x-8"
+      >
         {data.links.github && (
-          <ProjectButton as="a" href={data.links.github} target="_none">
+          <Button as="a" href={data.links.github} target="_none">
             <GithubIcon />
             Github Repo
-          </ProjectButton>
+          </Button>
         )}
         {data.links.demo && (
-          <ProjectButton primary as="a" href={data.links.demo} target="_none">
+          <Button primary as="a" href={data.links.demo} target="_none">
             <DemoIcon />
             Live Demo
-          </ProjectButton>
+          </Button>
         )}
       </div>
     </>
@@ -101,8 +104,6 @@ const ProjectWriteUp: React.FC<
 };
 
 //#region Internal Styles
-
-const ProjectButton = tw(Button)`flex-1 py-3`;
 
 const GithubIcon = () => (
   <svg

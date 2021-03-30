@@ -12,6 +12,7 @@ const projectOrder = [
   "the-sausage-box",
   "element-education",
   "byte-sized",
+  "portfolio",
 ];
 
 export function getWriteupBySlug(slug) {

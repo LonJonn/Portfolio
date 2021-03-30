@@ -22,7 +22,7 @@ const Home: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
   return (
     <>
       {/* Hero */}
-      <section tw="relative text-gray-900">
+      <section tw="relative min-h-screen text-gray-900">
         {/* Background */}
         <div
           tw="absolute top-0 hidden w-full h-full md:(flex flex-col-reverse) lg:flex-row"
@@ -34,9 +34,9 @@ const Home: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
 
         {/* Content */}
         <Header hasBackground />
-        <div tw="prose prose-xl prose-primary container pt-12 md:(py-20 text-white) lg:(py-32 text-current)">
-          <div tw="lg:w-2/5">
-            <h1>
+        <div tw="container pt-12 md:(py-20 text-white) lg:(py-32 text-current)">
+          <div tw="lg:w-2/5" css={{ p: tw`py-2 text-xl lg:py-4` }}>
+            <h1 tw="mb-6 text-6xl font-extrabold tracking-wide lg:mb-8">
               <span
                 css={[
                   tw`-webkit-background-clip[text] -webkit-text-fill-color[transparent]`,
@@ -54,7 +54,9 @@ const Home: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
                 <span tw="absolute bottom-full left-1/2 hidden justify-center w-48 py-1 text-base font-bold text-white bg-primary-900 rounded-md transform -translate-x-1/2 -translate-y-1 group-hover:flex">
                   Lee•On Sal•See•Cha
                 </span>
-                <Bold tw="underline">Leon Salsiccia</Bold>
+                <strong tw="border-b-2 border-dashed border-current">
+                  Leon Salsiccia
+                </strong>
               </span>
               , a passionate developer obsessed with the web! I'm currently
               studying at the University of Technology Sydney pursuing a
@@ -62,22 +64,47 @@ const Home: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
             </p>
             <p>
               This portfolio was designed and built by myself using some of my
-              favourite technologies, including <Bold>TypeScript</Bold>,{" "}
-              <Bold>React</Bold>, <Bold>NextJS</Bold> &{" "}
-              <Bold>Tailwind CSS</Bold>. All icons used are from{" "}
-              <Bold>HeroIcons</Bold>.
+              favourite technologies, including <strong>TypeScript</strong>,{" "}
+              <strong>React</strong>, <strong>NextJS</strong> &{" "}
+              <strong>Tailwind CSS</strong>. All icons used are from{" "}
+              <strong>HeroIcons</strong>.
             </p>
             <p>
               Thanks for checking out my website! ❤️
               <br />
               If you're interested to see some of the things I've worked on,
               please{" "}
-              <Link href="#projects">
-                <a>check out my projects below!</a>
+              <Link href="#projects" passHref>
+                <a tw="underline font-semibold text-primary-600 md:text-white lg:text-primary-600">
+                  check out my projects below!
+                </a>
               </Link>
             </p>
           </div>
         </div>
+      </section>
+
+      <Divider />
+
+      {/* About Me */}
+      <section
+        tw="mx-auto px-4 text-gray-900"
+        css={{ maxWidth: "65ch", p: tw`my-4 text-lg` }}
+      >
+        <h2 tw="mb-6 text-center text-5xl font-extrabold tracking-tight lg:mb-8">
+          About Me
+        </h2>
+        <p>
+          I recently became a Co-Founder and Director of Sponsorships &
+          Partnerships within the UTS Cloud Computing Society 🥳🎉. This is the
+          first time I've taken on a leadership role of this scale which is
+          quite scary 😬, but also really exciting 🤩
+        </p>
+        <p>
+          We have an amazing group and I'm certain the society will go far! I'm
+          grateful I can be apart of this and it's something that will
+          undoubtably help me grow!
+        </p>
       </section>
 
       <Divider id="projects" />
@@ -105,12 +132,8 @@ const Home: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
           to drop by my Github 😊
         </p>
       </section>
-
-      {/* About Me */}
     </>
   );
 };
-
-const Bold = tw.strong`md:text-white! lg:text-current!`;
 
 export default Home;

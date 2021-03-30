@@ -15,7 +15,11 @@ const ProjectCard: React.FC<ProjectMetadata & { slug: string }> = ({
     <a className="group" tw="lg:w-5/12">
       <Wrapper>
         <div tw="lg:(aspect-w-16 aspect-h-9)">
-          <img src={`/images/${slug}/${cover_image}`} css={imageStyles()} />
+          <img
+            src={`/images/${slug}/${cover_image}`}
+            alt={`${slug} cover image`}
+            css={imageStyles()}
+          />
         </div>
 
         {/* Info */}
