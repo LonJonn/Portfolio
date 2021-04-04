@@ -1,4 +1,4 @@
-import tw from "twin.macro";
+import tw, { styled } from "twin.macro";
 import { GetStaticPaths, InferGetStaticPropsType } from "next";
 import Head from "next/head";
 import Button from "../../components/common/Button";
@@ -13,7 +13,7 @@ import {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
-    paths: getAllWriteups().map(w => ({ params: w })) as any,
+    paths: getAllWriteups().map(w => ({ params: { slug: w.slug } })),
     fallback: false,
   };
 };
@@ -21,7 +21,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps = async ({ params }) => {
   const { content, data } = getWriteupBySlug(params.slug);
   const markup = await mdToMarkup(content);
-  const images = getProjectImages(params.slug as string);
+  const images = getProjectImages(params.slug);
 
   return {
     props: {
@@ -44,16 +44,12 @@ const ProjectWriteUp: React.FC<
       </Head>
 
       {/* Heading */}
-      <div tw="flex flex-col gap-y-6 text-center">
-        <h1
-          cs="WebkitBackgroundClip[text] WebkitTextFillColor[transparent]"
-          tw="mx-auto text-4xl text-6xl font-extrabold tracking-wide bg-gradient-to-tr from-orange-400 to-red-500 via-pink-500 md:text-5xl"
-        >
-          {data.title}
-        </h1>
+      <div tw="flex flex-col gap-y-6 mt-6 text-center">
+        <Title>{data.title}</Title>
 
         <p tw="text-xl text-gray-500">{`${data.description} • ${data.year}`}</p>
 
+        {/* Tags */}
         <div tw="flex flex-wrap gap-y-4 justify-center max-w-md mx-auto text-sm">
           {data.tags.map(tag => (
             <span
@@ -66,26 +62,12 @@ const ProjectWriteUp: React.FC<
         </div>
       </div>
 
-      <Divider tw="w-12 my-12" />
+      <Divider />
 
-      {/* Showcase */}
       <ProjectShowcase images={data.images} />
 
-      <Divider tw="w-12 my-12" />
-
-      {/* Content */}
-      <section
-        tw="lg:prose-xl prose prose-lg prose-primary mx-auto px-4"
-        dangerouslySetInnerHTML={{ __html: markup }}
-      />
-
-      <Divider tw="w-12 my-12" />
-
-      {/* Buttons */}
-      <div
-        css={{ [Button]: tw`flex-1 py-3` }}
-        tw="flex gap-x-4 max-w-xl mx-auto px-4 lg:gap-x-8"
-      >
+      <ButtonGroup>
+        <div tw="absolute inset-x-0 top-full h-16 bg-gradient-to-b from-background"></div>
         {data.links.github && (
           <Button as="a" href={data.links.github} target="_none">
             <GithubIcon />
@@ -98,12 +80,42 @@ const ProjectWriteUp: React.FC<
             Live Demo
           </Button>
         )}
-      </div>
+      </ButtonGroup>
+
+      <Divider tw="border-gray-300" />
+
+      {/* Content */}
+      <section
+        tw="lg:prose-lg prose prose-lg prose-primary mx-auto px-4"
+        css={{ "blockquote p": { "::before, ::after": tw`hidden` } }}
+        dangerouslySetInnerHTML={{ __html: markup }}
+      />
+
+      <Divider />
+
+      <a
+        tw="block text-center underline text-lg font-medium text-primary-500"
+        href="#top"
+      >
+        Take me up, Chief! ☝
+      </a>
     </>
   );
 };
 
 //#region Internal Styles
+
+const Title = styled.h1(() => [
+  tw`text-5xl font-extrabold tracking-wide`,
+  tw`bg-gradient-to-tr from-orange-400 to-red-500 via-pink-500`,
+  { WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" },
+]);
+
+const ButtonGroup = styled.div(() => [
+  tw`relative z-10 top-0 flex gap-x-4 max-w-3xl mx-auto p-4 bg-background`,
+  tw`md:(sticky gap-x-8 px-24)`,
+  { [Button]: tw`flex-1 py-3` },
+]);
 
 const GithubIcon = () => (
   <svg

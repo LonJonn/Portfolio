@@ -4,7 +4,7 @@ import tw, { css, styled } from "twin.macro";
 
 type HeaderProps = { hasBackground?: boolean };
 const Header: React.FC<HeaderProps> = ({ hasBackground }) => (
-  <Wrapper className={hasBackground && "background"}>
+  <Wrapper id="top" className={hasBackground && "background"}>
     <Link href="/" passHref>
       <Logo>LS</Logo>
     </Link>
@@ -13,8 +13,8 @@ const Header: React.FC<HeaderProps> = ({ hasBackground }) => (
       <Link href="/#projects" passHref>
         <NavLink>Projects</NavLink>
       </Link>
-      <Link href="/resume" passHref>
-        <NavLink>Resume</NavLink>
+      <Link href="/resume.pdf" passHref>
+        <NavLink target="_none">Resume</NavLink>
       </Link>
       <NavLink href="https://github.com/LonJonn" target="_none">
         GitHub

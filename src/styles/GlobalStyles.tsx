@@ -7,7 +7,7 @@ const CustomStyles = createGlobalStyle`
   }
 
   body {
-    ${tw`antialiased`}
+    ${tw`antialiased text-gray-900 bg-gray-50`}
   }
 `;
 
