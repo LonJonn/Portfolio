@@ -38,9 +38,9 @@ const Home: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
         {/* Content */}
         <div tw="container pt-12 md:(py-20 text-white) lg:(py-32 text-current)">
           <div tw="lg:w-2/5" css={{ p: tw`py-2 text-xl lg:py-4` }}>
-            <h1 tw="mb-6 text-6xl font-extrabold tracking-wide lg:mb-8">
+            <h1 tw="mb-6 text-5xl font-extrabold tracking-wide md:text-6xl lg:mb-8">
               <span
-                tw="text-6xl bg-gradient-to-bl from-purple-400 to-red-500 via-pink-500 md:(text-white bg-none) lg:text-current"
+                tw="bg-gradient-to-bl from-purple-400 to-red-500 via-pink-500 md:(text-white bg-none) lg:text-current"
                 css={[
                   tw`-webkit-background-clip[text] -webkit-text-fill-color[transparent]`,
                   tw`md:(-webkit-background-clip[unset] -webkit-text-fill-color[unset])`,
