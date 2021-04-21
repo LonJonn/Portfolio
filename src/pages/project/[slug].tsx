@@ -106,14 +106,14 @@ const ProjectWriteUp: React.FC<
 //#region Internal Styles
 
 const Title = styled.h1(() => [
-  tw`text-5xl font-extrabold tracking-wide`,
+  tw`py-2 text-5xl font-extrabold tracking-wide`,
   tw`bg-gradient-to-tr from-orange-400 to-red-500 via-pink-500`,
   { WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" },
 ]);
 
 const ButtonGroup = styled.div(() => [
-  tw`relative z-10 top-0 flex gap-x-4 max-w-3xl mx-auto p-4 bg-background`,
-  tw`md:(sticky gap-x-8 px-24)`,
+  tw`sticky z-10 top-0 flex gap-x-4 max-w-3xl mx-auto p-4 bg-background`,
+  tw`md:(gap-x-8 px-24)`,
   { [Button]: tw`flex-1 py-3` },
 ]);
 
