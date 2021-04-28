@@ -1,21 +1,21 @@
-import Link from "next/link";
+import NextLink from "next/link";
 import Button from "./Button";
 import tw, { css, styled } from "twin.macro";
 
 type HeaderProps = { hasBackground?: boolean };
 const Header: React.FC<HeaderProps> = ({ hasBackground }) => (
   <Wrapper id="top" className={hasBackground && "background"}>
-    <Link href="/" passHref>
+    <NextLink href="/" passHref>
       <Logo>LS</Logo>
-    </Link>
+    </NextLink>
 
     <Nav>
-      <Link href="/#projects" passHref>
+      <NextLink href="/#projects" passHref>
         <NavLink>Projects</NavLink>
-      </Link>
-      <Link href="/resume.pdf" passHref>
+      </NextLink>
+      <NextLink href="/resume.pdf" passHref>
         <NavLink target="_none">Resume</NavLink>
-      </Link>
+      </NextLink>
       <NavLink href="https://github.com/LonJonn" target="_none">
         GitHub
       </NavLink>
