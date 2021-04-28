@@ -15,6 +15,13 @@ const ProjectShowcase: React.FC<{ images: string[] }> = ({ images }) => {
       slidesPerView="auto"
       centeredSlides
       grabCursor
+      updateOnImagesReady
+      onImagesReady={s => {
+        // dumb dumb bug where swiper doesn't know what to do with dynamic images >:(
+        // So we wait for images to load, then go back to the "first" image (but / 3 cause it loops)
+        s.slideTo(s.slides.length / 3);
+        s.autoplay.start();
+      }}
       tw="mb-16 pb-16 pt-4"
       css={{ ".swiper-wrapper": tw`items-center` }}
     >
