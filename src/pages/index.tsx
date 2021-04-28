@@ -155,7 +155,7 @@ const Home: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
           </p>
         </div>
 
-        <div tw="flex flex-col flex-wrap gap-y-12 justify-around md:(gap-y-16 mx-12) lg:(flex-row mx-8)">
+        <div tw="grid gap-12 w-full max-w-5xl lg:grid-cols-2">
           {Object.values(projects).map(project => (
             <ProjectCard
               slug={project.slug}
