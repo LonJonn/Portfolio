@@ -14,14 +14,14 @@ const Header: React.FC<HeaderProps> = ({ hasBackground }) => (
         <NavLink>Projects</NavLink>
       </NextLink>
       <NextLink href="/resume.pdf" passHref>
-        <NavLink target="_none">Resume</NavLink>
+        <NavLink target="_blank">Resume</NavLink>
       </NextLink>
-      <NavLink href="https://github.com/LonJonn" target="_none">
+      <NavLink href="https://github.com/LonJonn" target="_blank">
         GitHub
       </NavLink>
       <NavLink
         href="https://www.linkedin.com/in/leon-salsiccia/"
-        target="_none"
+        target="_blank"
       >
         LinkedIn
       </NavLink>

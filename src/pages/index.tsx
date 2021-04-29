@@ -104,7 +104,7 @@ const Home: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
           >
             <Card
               as="a"
-              target="_none"
+              target="_blank"
               tw="relative z-10 p-8 bg-gradient-to-br shadow-2xl from-purple-500 to-indigo-500 lg:(text-sm scale-125 group-hover:scale-110)"
             >
               <div tw="absolute -right-4 -top-4 text-6xl">🥳</div>

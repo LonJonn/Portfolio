@@ -15,7 +15,7 @@ const Footer: React.FC = () => (
 );
 
 const FooterLink: React.FC<{ href: string }> = ({ href, children }) => (
-  <a href={href} target="_none" tw="font-bold!">
+  <a href={href} target="_blank" tw="font-bold!">
     {children}
   </a>
 );
