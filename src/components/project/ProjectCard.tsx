@@ -20,6 +20,7 @@ const ProjectCard: React.FC<ProjectMetadata & { slug: string }> = ({
       <NextImage
         layout="fill"
         objectFit="cover"
+        loading="eager"
         src={`/images/${slug}/${cover_image}`}
         alt={`${slug} cover image`}
         css={[
@@ -34,7 +35,7 @@ const ProjectCard: React.FC<ProjectMetadata & { slug: string }> = ({
         css={[
           tw`w-10/12 p-6 bg-whiteAlpha-600 rounded-md shadow-xl`,
           tw`absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/3`,
-          { backdropFilter: "blur(20px)" },
+          tw`backdrop-filter backdrop-blur-md`,
         ]}
       >
         <div tw="flex items-center justify-between font-bold">
