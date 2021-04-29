@@ -1,7 +1,8 @@
 import fs from "fs";
 import path from "path";
 import graymatter from "gray-matter";
-import type { ProjectMetadata } from "../types";
+import sizeOf from "image-size";
+import type { ImageType, ProjectMetadata } from "../types";
 
 const writeupsDirectory = path.join(process.cwd(), "src/_writeups");
 const projectOrder = [
@@ -36,18 +37,27 @@ export function getAllWriteups() {
     );
 }
 
-export function getProjectImages(project: string): string[] {
+export function getProjectImages(project: string): ImageType[] {
   const folderPath = path.join(process.cwd(), "/public/images", project);
 
   const files = fs
     .readdirSync(folderPath)
     .filter(f => !f.startsWith("."))
-    .sort((a, b) => {
+    .sort(function sortFileByName(a, b) {
       const [img1] = a.split(".");
       const [img2] = b.split(".");
 
       return Number(img1) < Number(img2) ? -1 : 1;
     });
 
-  return files.map(f => path.join("/images", project, f));
+  return files.map(function getImageMetadata(image): ImageType {
+    const imagePath = path.join("/images", project, image);
+    const imageDimensions = sizeOf(path.join(folderPath, image));
+
+    return {
+      src: imagePath,
+      width: imageDimensions.width,
+      height: imageDimensions.height,
+    };
+  });
 }
