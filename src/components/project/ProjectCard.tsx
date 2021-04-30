@@ -13,7 +13,7 @@ const ProjectCard: React.FC<ProjectMetadata & { slug: string }> = ({
   <NextLink href={`/project/${slug}`} passHref>
     <a
       className="group"
-      tw="relative h-64 mb-10 sm:h-80 lg:h-64"
+      tw="relative h-60 mb-10 sm:h-80 lg:h-64"
       // NextImage wraps in a div, but I want shadows >:( so overwrite styles
       css={{ "& > div:first-child": tw`overflow-visible!` }}
     >

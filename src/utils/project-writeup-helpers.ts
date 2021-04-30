@@ -17,7 +17,7 @@ const projectOrder = [
 ];
 
 export function getWriteupBySlug(slug) {
-  const realSlug = slug.replace(/\.md$/, "");
+  const realSlug = slug.replace(/\.md$/, "") as string;
   const fullPath = path.join(writeupsDirectory, `${realSlug}.md`);
   const { content, data } = graymatter.read(fullPath);
 
@@ -30,11 +30,10 @@ export function getWriteupBySlug(slug) {
 
 export function getAllWriteups() {
   const slugs = fs.readdirSync(writeupsDirectory);
-  return slugs
-    .map(getWriteupBySlug)
-    .sort((a, b) =>
-      projectOrder.indexOf(a.slug) < projectOrder.indexOf(b.slug) ? -1 : 1,
-    );
+
+  return slugs.map(getWriteupBySlug).sort(function sortFileByName(a, b) {
+    return projectOrder.indexOf(a.slug) < projectOrder.indexOf(b.slug) ? -1 : 1;
+  });
 }
 
 export function getProjectImages(project: string): ImageType[] {
@@ -50,7 +49,7 @@ export function getProjectImages(project: string): ImageType[] {
       return Number(img1) < Number(img2) ? -1 : 1;
     });
 
-  return files.map(function getImageMetadata(image): ImageType {
+  return files.map<ImageType>(function getImageDimensions(image) {
     const imagePath = path.join("/images", project, image);
     const imageDimensions = sizeOf(path.join(folderPath, image));
 
