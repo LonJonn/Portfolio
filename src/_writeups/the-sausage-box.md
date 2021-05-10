@@ -20,7 +20,7 @@ _My family name actually means "sausage" in Italian, so hopefully that provides 
 >
 > This was before we got Netflix so it's not really used anymore... 🙃
 
-This was the first web-development project I ever completed. Prior to this, I had stumbled across Vue, but everything was pretty new to me. I was studying Python at school, but teaching myself web-development during my own time through free online resources.
+This was the first web-development project I ever completed. Prior to this, I had stumbled across Vue, but everything was still new to me. I was learning Python at school but teaching myself web-development during my own time through free online resources.
 
 The concept of building applications that are accessible through a web browser without needing to install any additional runtime was something I thought was really cool. To be transparent, I had no idea how any of these technologies worked, but I was excited to be using them nonetheless!
 
@@ -31,7 +31,7 @@ The concept of building applications that are accessible through a web browser w
 - Socket-IO for web sockets
 - Buefy component library built on BulmaCSS
 
-This project was a simple user-interface for reading a directory of video files and serving them over our LAN. I also added functionality to download a video by its URL to add to the server remotely.
+This project was a simple user-interface for reading a directory of video files and serving them over our LAN. I also added functionality to download a video by it's URL to add to the server remotely.
 
 This download feature actually undertook many iterations before I decided to use web sockets. Originally, when downloading, I would hit the server using AJAX calls on a short interval with `setInterval` until the download completed. Yikes... 😬 Eventually I found out about web sockets which I used for real-time download progress updates!
 

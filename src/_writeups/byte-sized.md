@@ -17,6 +17,6 @@ Byte Sized is a simple cookie clicker game I made in high school with plain ol' 
 
 This was a really fun project that introduced me into the world of web-development. I used local storage to persist user scores and setup event handlers to handle user interaction. All data was stored in a simple object that was written to local storage every minute (which means it was very easy to cheat 😅).
 
-I had a lot of fun with the tech theme of the game. I wrote completely custom (and really bad) CSS and messed around with cute little animations!
+I had a lot of fun with the tech theme of the game. I wrote completely custom (and really bad) CSS and messed around with cute animations!
 
 I honestly had no idea what I was doing and the codebase is terrible, but I had such a great time messing around with JS and finding out what I can do with "just" a web browser!

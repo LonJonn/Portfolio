@@ -32,9 +32,11 @@ The write-ups are written in Markdown with meta-data, such as tags, descriptions
 
 These markdown files are parsed into HTML markup using [ReMark][2] & [GrayMatter][3]. This allows me to dynamically update the layout of the page depending on the project being generated e.g. some projects don't have a demo link.
 
+I also used NextJS's Image Optimisation feature to serve images with dynamic sizes depending on the viewport. To achieve this, I calculate the aspect ratio of the image at build time and use this metadata for dynamic image generation. The generated images are cached to a CDN to improve performance for subsequent requests. In total, this brought down the total transfered data from 10 MB to 1.5 MB! (on my laptop, varies by viewport)
+
 ### Design
 
-I designed this portfolio myself and styled it using [TailwindCSS][4] and [Twin.Macro][5]; a CSS-in-JS solution that integrates React and Tailwind together really well. I'm still experimenting with different styling solutions and APIs, but so far I'm really enjoying Tailwind's atomic utility-class approach, despite the verbose class names in my markup. **Adam Wathan**, the creator of TailwindCSS, has a [really good article][6] that objectively compares different styling approaches and describes how he reached his API for Tailwind.
+I designed this portfolio myself and styled it using [TailwindCSS][4] and [Twin.Macro][5]; a CSS-in-JS solution that integrates React and Tailwind together really well. I'm still experimenting with different styling solutions and APIs, but so far I'm really enjoying Tailwind's atomic utility-class approach, despite the verbose class names in my markup. **Adam Wathan**, the creator of TailwindCSS, has a [great article][6] that objectively compares different styling approaches and describes how he reached his design for Tailwind.
 
 ### Final Thoughts
 
