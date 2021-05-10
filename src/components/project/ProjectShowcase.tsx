@@ -17,6 +17,7 @@ const ProjectShowcase: React.FC<{ images: ImageType[] }> = ({ images }) => {
       slidesPerView="auto"
       centeredSlides
       grabCursor
+      autoHeight
       tw="mb-16 pb-16 pt-4"
       css={{
         ".swiper-wrapper": tw`items-center`,
@@ -39,7 +40,10 @@ const ProjectShowcase: React.FC<{ images: ImageType[] }> = ({ images }) => {
             loading="eager"
             src={image.src}
             alt={`Project Showcase Image ${image.src.split("/").slice(-1)}`}
-            tw="rounded-2xl shadow-xl object-contain"
+            css={[
+              image.width / image.height < 1 ? tw`rounded-2xl` : tw`rounded`,
+              tw`shadow-xl object-contain md:rounded-2xl`,
+            ]}
           />
         </SwiperSlide>
       ))}
