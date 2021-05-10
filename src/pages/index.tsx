@@ -125,18 +125,6 @@ const Home: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
             </p>
           </Card>
         </div>
-
-        {/* <p>
-          I recently became a Co-Founder and Director of Sponsorships &
-          Partnerships within the UTS Cloud Computing Society 🥳🎉. This is the
-          first time I've taken on a leadership role of this scale which is
-          quite scary 😬, but also really exciting 🤩
-        </p>
-        <p>
-          We have an amazing group and I'm certain the society will go far! I'm
-          grateful I can be apart of this and it's something that will
-          undoubtably help me grow!
-        </p> */}
       </section>
 
       <Divider id="projects" />
