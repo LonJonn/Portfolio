@@ -4,10 +4,22 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Autoplay, Pagination } from "swiper";
 import "swiper/swiper-bundle.min.css";
 import type { ImageType } from "../../types";
+import { useEffect } from "react";
 
 SwiperCore.use([Autoplay, Pagination]);
 
 const ProjectShowcase: React.FC<{ images: ImageType[] }> = ({ images }) => {
+  // Fix to prevent carousel height "jumping" while the images are loading
+  useEffect(function setupCarouselHeightFix() {
+    const firstImageEl = document.querySelector<HTMLImageElement>(".swiper-slide img");
+    const swiperWrapperEl = document.querySelector<HTMLDivElement>(".swiper-wrapper");
+
+    firstImageEl.addEventListener("load", function resizeCarousel() {
+      const height = firstImageEl.getBoundingClientRect().height;
+      swiperWrapperEl.style.height = height + "px";
+    });
+  }, []);
+
   return (
     <Swiper
       spaceBetween={50}
@@ -25,7 +37,7 @@ const ProjectShowcase: React.FC<{ images: ImageType[] }> = ({ images }) => {
         ".swiper-slide > div": tw`overflow-visible!`,
       }}
     >
-      {images.map(image => (
+      {images.map((image) => (
         <SwiperSlide
           style={{
             width: (image.width / image.height) * 600,
