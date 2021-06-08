@@ -13,7 +13,7 @@ import {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
-    paths: getAllWriteups().map(w => ({ params: { slug: w.slug } })),
+    paths: getAllWriteups().map((w) => ({ params: { slug: w.slug } })),
     fallback: false,
   };
 };
@@ -34,9 +34,10 @@ export const getStaticProps = async ({ params }) => {
   };
 };
 
-const ProjectWriteUp: React.FC<
-  InferGetStaticPropsType<typeof getStaticProps>
-> = ({ data, markup }) => {
+const ProjectWriteUp: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
+  data,
+  markup,
+}) => {
   return (
     <>
       <Head>
@@ -51,7 +52,7 @@ const ProjectWriteUp: React.FC<
 
         {/* Tags */}
         <div tw="flex flex-wrap gap-y-4 justify-center max-w-md mx-auto text-sm">
-          {data.tags.map(tag => (
+          {data.tags.map((tag) => (
             <span
               tw="mx-2 px-5 py-1 text-primary-700 bg-primary-200 border border-primary-700 rounded-full"
               key={tag}
@@ -93,10 +94,7 @@ const ProjectWriteUp: React.FC<
 
       <Divider />
 
-      <a
-        tw="block text-center underline text-lg font-medium text-primary-500"
-        href="#top"
-      >
+      <a tw="block text-center underline text-lg font-medium text-primary-500" href="#top">
         Take me up, Chief! ☝
       </a>
     </>
