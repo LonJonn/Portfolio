@@ -13,7 +13,7 @@ const Header: React.FC<HeaderProps> = ({ hasBackground }) => (
       <NextLink href="/#projects" passHref>
         <NavLink>Projects</NavLink>
       </NextLink>
-      <NextLink href="/resume-one-page.pdf" passHref>
+      <NextLink href="/resume.pdf" passHref>
         <NavLink target="_blank">Resume</NavLink>
       </NextLink>
       <NavLink href="https://github.com/LonJonn" target="_blank">
