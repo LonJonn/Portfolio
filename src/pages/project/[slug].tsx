@@ -54,7 +54,7 @@ const ProjectWriteUp: React.FC<InferGetStaticPropsType<typeof getStaticProps>> =
         <div tw="flex flex-wrap gap-y-4 justify-center max-w-md mx-auto text-sm">
           {data.tags.map((tag) => (
             <span
-              tw="mx-2 px-5 py-1 text-primary-700 bg-primary-200 border border-primary-700 rounded-full"
+              tw="mx-2 px-5 py-1 text-primary-700 bg-primary-100 border border-primary-700 rounded-full"
               key={tag}
             >
               {tag}
