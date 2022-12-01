@@ -67,21 +67,23 @@ const ProjectWriteUp: React.FC<InferGetStaticPropsType<typeof getStaticProps>> =
 
       <ProjectShowcase images={data.images} />
 
-      <ButtonGroup>
-        <div tw="absolute inset-x-0 top-full h-16 bg-gradient-to-b from-background"></div>
-        {data.links.github && (
-          <Button as="a" href={data.links.github} target="_blank">
-            <GithubIcon />
-            Github Repo
-          </Button>
-        )}
-        {data.links.demo && (
-          <Button primary as="a" href={data.links.demo} target="_blank">
-            <DemoIcon />
-            Live Demo
-          </Button>
-        )}
-      </ButtonGroup>
+      {data.links && (
+        <ButtonGroup>
+          <div tw="absolute inset-x-0 top-full h-16 bg-gradient-to-b from-background"></div>
+          {data.links.github && (
+            <Button as="a" href={data.links.github} target="_blank">
+              <GithubIcon />
+              Github Repo
+            </Button>
+          )}
+          {data.links.demo && (
+            <Button primary as="a" href={data.links.demo} target="_blank">
+              <DemoIcon />
+              Demo
+            </Button>
+          )}
+        </ButtonGroup>
+      )}
 
       <Divider tw="border-gray-300" />
 

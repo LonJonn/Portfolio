@@ -46,8 +46,8 @@ const ProjectShowcase: React.FC<{ images: ImageType[] }> = ({ images }) => {
           key={image.src}
         >
           <NextImage
-            height={600}
-            width={(image.width / image.height) * 600}
+            height={800}
+            width={(image.width / image.height) * 800}
             quality={100}
             loading="eager"
             src={image.src}
